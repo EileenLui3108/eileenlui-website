@@ -117,8 +117,13 @@
     .work-card .slider-arrow { width: 28px; height: 28px; font-size: 0.8rem; }
 
     /* Showcase strip */
-    #showcase { overflow: hidden; line-height: 0; }
-    #showcase img { width: 100%; height: 420px; object-fit: cover; object-position: center 30%; display: block; filter: grayscale(20%); }
+    #showcase { background: var(--bg); padding: 80px 24px; text-align: center; }
+    .showcase-photos { display: flex; justify-content: center; gap: 40px; margin-bottom: 48px; flex-wrap: wrap; }
+    .showcase-person img { width: 260px; height: 320px; object-fit: cover; object-position: center top; filter: grayscale(15%); }
+    .showcase-person-name { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); margin-top: 12px; }
+    .showcase-quote { max-width: 680px; margin: 0 auto; }
+    .showcase-quote .quote-mark { font-family: var(--font-serif); font-size: 4rem; color: var(--accent); line-height: 0.5; display: block; margin-bottom: 16px; }
+    .showcase-quote p { font-size: 1rem; color: var(--text-light); line-height: 1.8; max-width: none; text-align: center; }
 
     /* Skills */
     #skills { padding: var(--section-pad); }
@@ -554,7 +559,24 @@
 
   <!-- SHOWCASE STRIP -->
   <section id="showcase">
-    <img src="showcase.jpg" alt="Team triathlon" />
+    <div class="showcase-photos reveal">
+      <div class="showcase-person">
+        <img src="showcase-eileen.jpg" alt="Eileen Lui" />
+        <div class="showcase-person-name">Eileen Lui</div>
+      </div>
+      <div class="showcase-person">
+        <img src="showcase-phoe.jpg" alt="Phoe Thaw" />
+        <div class="showcase-person-name">Phoe Thaw</div>
+      </div>
+      <div class="showcase-person">
+        <img src="showcase-sai.jpg" alt="Sai Nyan Linn" />
+        <div class="showcase-person-name">Sai Nyan Linn</div>
+      </div>
+    </div>
+    <div class="showcase-quote reveal">
+      <span class="quote-mark">"</span>
+      <p>An unlikely pairing of athletes from different backgrounds, different countries of origin and different cultures, but sharing one love: sports. Combining mixed martial arts, CrossFit and triathlon. All three athletes have a great attitude towards sports and life altogether. They understand the discipline and the commitment it takes to excel in what they set out to do.</p>
+    </div>
   </section>
 
   <!-- CONTACT -->
