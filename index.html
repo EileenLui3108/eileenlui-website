@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Eileen Lui — Strategic Content and Communications Leader. 20+ years building editorial programs, teams, and impact across Asia." />
+  <title>Eileen Lui</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:          #F8F6F3;
+      --bg-dark:     #1C1C1E;
+      --text:        #1A1A1A;
+      --text-light:  #5A5754;
+      --accent:      #E8007D;
+      --divider:     #D4D0CA;
+      --font-serif:  'DM Serif Display', Georgia, serif;
+      --font-sans:   'Inter', system-ui, sans-serif;
+      --max-w:       1140px;
+      --section-pad: 96px 24px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); font-weight: 300; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; line-height: 1.15; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.5rem); }
+    h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+    p { font-size: clamp(0.95rem, 1.5vw, 1.05rem); color: var(--text); max-width: 62ch; }
+    .label { font-family: var(--font-sans); font-weight: 500; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); }
+    .accent { color: var(--accent); }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    section { padding: var(--section-pad); }
+    .section-dark { background: var(--bg-dark); color: #F8F6F3; }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* Nav */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s ease, box-shadow 0.3s ease; }
+    nav.scrolled { background: rgba(248,246,243,0.95); backdrop-filter: blur(8px); box-shadow: 0 1px 0 var(--divider); }
+    .nav-logo { font-family: var(--font-serif); font-size: 1.1rem; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text); transition: all 0.3s; }
+    .nav-mobile { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { font-family: var(--font-serif); font-size: 2rem; }
+    .nav-mobile a:hover { color: var(--accent); }
+
+    /* Hero */
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 24px 80px; gap: 60px; max-width: var(--max-w); margin: 0 auto; }
+    .hero-content .label { margin-bottom: 20px; }
+    .hero-title { margin-bottom: 24px; }
+    .hero-title span { color: var(--accent); }
+    .hero-tagline { font-size: clamp(1rem, 1.8vw, 1.15rem); color: var(--text-light); margin-bottom: 40px; max-width: 52ch; }
+    .hero-cta { display: inline-block; padding: 14px 32px; border: 1.5px solid var(--text); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.25s, color 0.25s, border-color 0.25s; }
+    .hero-cta:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .hero-image-wrap { position: relative; }
+    .hero-image-wrap img { width: 100%; max-width: 480px; height: 580px; object-fit: cover; object-position: center top; }
+    .hero-image-wrap::after { content: ''; position: absolute; bottom: -16px; right: -16px; width: 100%; height: 100%; border: 2px solid var(--accent); z-index: -1; max-width: 480px; }
+    .scroll-indicator { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 40px; opacity: 0.45; }
+    .scroll-indicator span { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
+    .scroll-line { width: 1px; height: 40px; background: var(--text); animation: scrollDrop 1.8s ease infinite; }
+    @keyframes scrollDrop { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+    /* Stats */
+    #stats { background: var(--bg-dark); padding: 72px 24px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 32px; max-width: var(--max-w); margin: 0 auto; }
+    .stat-item { text-align: center; }
+    .stat-number { font-family: var(--font-serif); font-size: clamp(2.4rem, 4vw, 3.6rem); color: #F8F6F3; line-height: 1; margin-bottom: 8px; }
+    .stat-number .stat-accent { color: var(--accent); }
+    .stat-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #B8B4AF; }
+
+    /* About */
+    #about { padding: var(--section-pad); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: var(--max-w); margin: 0 auto; }
+    .about-text .label { margin-bottom: 16px; }
+    .about-text h2 { margin-bottom: 32px; }
+    .about-text p { margin-bottom: 20px; color: var(--text-light); }
+    .about-text p:first-of-type { color: var(--text); }
+
+    /* Slider */
+    .slider { position: relative; overflow: hidden; }
+    .slider-track { display: flex; transition: transform 0.5s ease; }
+    .slider-track img { min-width: 100%; height: 520px; object-fit: cover; }
+    .slider-nav { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
+    .slider-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; border: none; transition: background 0.2s; }
+    .slider-dot.active { background: var(--accent); }
+    .slider-arrows { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between; padding: 0 12px; pointer-events: none; }
+    .slider-arrow { pointer-events: all; background: rgba(248,246,243,0.85); border: none; width: 36px; height: 36px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+    .slider-arrow:hover { background: var(--accent); color: #fff; }
+
+    /* Work */
+    #work { background: var(--bg-dark); padding: var(--section-pad); }
+    .work-header { max-width: var(--max-w); margin: 0 auto 64px; }
+    .work-header .label { margin-bottom: 16px; }
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: var(--max-w); margin: 0 auto; }
+    .work-card { background: #303032; padding: 40px 32px; position: relative; transition: transform 0.3s ease; }
+    .work-card:hover { transform: translateY(-6px); }
+    .work-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--accent); transition: height 0.3s ease; }
+    .work-card:hover::before { height: 100%; }
+    .work-card-number { font-family: var(--font-serif); font-size: 3rem; color: #686468; line-height: 1; margin-bottom: 24px; }
+    .work-card h3 { color: #F8F6F3; margin-bottom: 12px; }
+    .work-card p { color: #B8B4AF; font-size: 0.9rem; max-width: none; }
+    .work-card-tag { display: inline-block; margin-top: 20px; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+
+    /* Skills */
+    #skills { padding: var(--section-pad); }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: var(--max-w); margin: 0 auto; }
+    .skills-col .label { margin-bottom: 24px; }
+    .language-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .language-item { display: flex; align-items: center; gap: 16px; }
+    .language-name { font-size: 0.85rem; font-weight: 500; min-width: 140px; }
+    .language-bar-bg { flex: 1; height: 3px; background: var(--divider); }
+    .language-bar-fill { height: 100%; background: var(--accent); width: 0; transition: width 1.2s ease; }
+    .archetype-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .archetype-card { padding: 24px; border: 1px solid var(--divider); transition: border-color 0.2s; }
+    .archetype-card:hover { border-color: var(--accent); }
+    .archetype-card h3 { font-size: 1rem; margin-bottom: 6px; }
+    .archetype-card p { font-size: 0.82rem; color: var(--text-light); max-width: none; }
+
+    /* Timeline */
+    #timeline { background: var(--bg-dark); padding: var(--section-pad); overflow: hidden; }
+    .timeline-header { max-width: var(--max-w); margin: 0 auto 56px; }
+    .timeline-scroll { overflow-x: auto; padding-bottom: 24px; scrollbar-width: thin; scrollbar-color: var(--accent) #2A2A2C; }
+    .timeline-track { display: flex; min-width: max-content; padding: 0 24px; position: relative; }
+    .timeline-track::before { content: ''; position: absolute; top: 18px; left: 0; right: 0; height: 1px; background: #555255; }
+    .timeline-item { min-width: 220px; padding-top: 44px; padding-right: 32px; position: relative; }
+    .timeline-dot { position: absolute; top: 11px; left: 0; width: 16px; height: 16px; border-radius: 50%; background: #555255; border: 2px solid #555255; }
+    .timeline-item.pivot .timeline-dot { background: var(--accent); border-color: var(--accent); }
+    .timeline-year { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .timeline-role { font-family: var(--font-serif); font-size: 0.95rem; color: #F8F6F3; margin-bottom: 4px; }
+    .timeline-org { font-size: 0.78rem; color: #B8B4AF; }
+
+    /* Beyond */
+    #beyond { padding: var(--section-pad); }
+    .beyond-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: var(--max-w); margin: 0 auto; }
+    .beyond-items { display: flex; flex-direction: column; gap: 40px; }
+    .beyond-item h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .beyond-item p { font-size: 0.9rem; color: var(--text-light); max-width: none; }
+    .beyond-divider { width: 32px; height: 2px; background: var(--accent); margin-bottom: 16px; }
+
+    /* Contact */
+    #contact { background: var(--bg-dark); padding: 120px 24px; text-align: center; }
+    #contact .label { margin-bottom: 20px; color: #B8B4AF; }
+    #contact h2 { color: #F8F6F3; margin-bottom: 20px; }
+    #contact p { color: #B8B4AF; margin: 0 auto 48px; max-width: 46ch; text-align: center; }
+    .contact-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .contact-link { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; border: 1.5px solid #686468; color: #F8F6F3; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: border-color 0.25s, color 0.25s; }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Footer */
+    footer { background: var(--bg-dark); border-top: 1px solid #2A2A2C; padding: 24px; text-align: center; }
+    footer p { font-size: 0.75rem; color: #8A8680; max-width: none; text-align: center; }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      :root { --section-pad: 72px 20px; }
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      #hero { grid-template-columns: 1fr; min-height: auto; padding: 100px 20px 60px; gap: 40px; }
+      .hero-image-wrap { order: -1; }
+      .hero-image-wrap img { height: 400px; max-width: 100%; }
+      .hero-image-wrap::after { display: none; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
+      .about-grid, .skills-grid, .beyond-grid { grid-template-columns: 1fr; gap: 48px; }
+      .work-grid { grid-template-columns: 1fr; gap: 20px; }
+      .archetype-grid { grid-template-columns: 1fr; }
+      #contact { padding: 80px 20px; }
+      .contact-links { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">Eileen Lui</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#timeline">Career</a></li>
+      <li><a href="#beyond">Beyond</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="#about"    onclick="closeMobileNav()">About</a>
+    <a href="#work"     onclick="closeMobileNav()">Work</a>
+    <a href="#skills"   onclick="closeMobileNav()">Skills</a>
+    <a href="#timeline" onclick="closeMobileNav()">Career</a>
+    <a href="#beyond"   onclick="closeMobileNav()">Beyond</a>
+    <a href="#contact"  onclick="closeMobileNav()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <div style="max-width:var(--max-w);margin:0 auto;">
+    <section id="hero" style="padding:120px 24px 80px;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;">
+      <div class="hero-content reveal">
+        <p class="label">Strategic Content and Communications</p>
+        <h1 class="hero-title">Eileen<br><span>Lui</span></h1>
+        <p class="hero-tagline">
+          20 years of turning vision into reality. I build editorial programs,
+          teams, and systems that make complex ideas land with the people who
+          need to hear them.
+        </p>
+        <a href="#contact" class="hero-cta">Get in touch</a>
+        <div class="scroll-indicator">
+          <span>Scroll</span>
+          <div class="scroll-line"></div>
+        </div>
+      </div>
+      <div class="hero-image-wrap reveal">
+        <img src="eileen-photo.jpg" alt="Eileen Lui" />
+      </div>
+    </section>
+  </div>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="counter" data-target="600">0</span><span class="stat-accent">K+</span></div>
+        <div class="stat-label">Organic website users driven</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="counter" data-target="8">0</span><span class="stat-accent">M+</span></div>
+        <div class="stat-label">YouTube views across platforms</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="counter" data-target="97">0</span><span class="stat-accent">K+</span></div>
+        <div class="stat-label">Podcast downloads</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="counter" data-target="10934">0</span></div>
+        <div class="stat-label">Active newsletter subscribers</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="counter" data-target="21">0</span></div>
+        <div class="stat-label">Special reports published</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-number"><span class="counter" data-target="20">0</span><span class="stat-accent">+</span></div>
+        <div class="stat-label">Years in communications</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid container">
+      <div class="about-text reveal">
+        <p class="label">About</p>
+        <h2>Built for the work that matters.</h2>
+        <p>
+          I am a multilingual communications leader with 20 years of experience across
+          Southeast and East Asia. I build things from scratch: editorial programs, internal
+          marketing teams, social enterprises, loyalty platforms. My core skill is translating
+          complex narratives, from COP and G20 to climate impacts and community livelihoods,
+          into stories that reach the people who need to hear them.
+        </p>
+        <p>
+          I spent a decade in Myanmar, building the marketing communications function for
+          City Holdings Limited and mentoring a generation of young communications
+          professionals. I then moved to Thailand to lead the editorial program at Cuttlefish
+          Media, growing Energy Tracker Asia and Climate Impacts Tracker Asia into credible,
+          data-driven platforms with a combined reach of over 600,000 organic users and
+          10.6 million YouTube views.
+        </p>
+        <p>
+          Today, I am focused on applying those skills where they are needed most. A belief
+          that communications done well is one of the most powerful tools available to
+          humanitarian work, and a promise I intend to keep, brought me to this point. I am
+          actively seeking roles, consultancies, and volunteer opportunities with organizations
+          working in conflict-affected and fragile contexts.
+        </p>
+      </div>
+      <div class="slider reveal" id="aboutSlider">
+        <div class="slider-track" id="aboutTrack">
+          <img src="eileen-photo.jpg" alt="Eileen Lui" />
+        </div>
+        <div class="slider-arrows">
+          <button class="slider-arrow" onclick="slideMove('aboutTrack',-1)">&#8592;</button>
+          <button class="slider-arrow" onclick="slideMove('aboutTrack',1)">&#8594;</button>
+        </div>
+        <div class="slider-nav" id="aboutDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="work-header container reveal">
+      <p class="label">Featured Work</p>
+      <h2 style="color:#F8F6F3;">Three projects. Real outcomes.</h2>
+    </div>
+    <div class="work-grid container">
+      <div class="work-card reveal">
+        <div class="work-card-number">01</div>
+        <h3>Energy Tracker Asia and Climate Impacts Tracker Asia</h3>
+        <p>
+          I built the editorial program, content strategy, SEO framework, social teams,
+          newsletter, and podcast infrastructure for two climate media platforms from scratch.
+          Grew combined organic traffic by 1,966% over three years.
+        </p>
+        <span class="work-card-tag">Editorial Leadership</span>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-card-number">02</div>
+        <h3>SoyAi and Children of Tomorrow Youth Centre</h3>
+        <p>
+          I co-founded a youth centre in Myanmar serving children from orphanages and homes.
+          Launched SoyAi, a social enterprise producing soy milk and tofu run by youth
+          graduates. Winner of the ASEAN Impact Challenge 2017 for Myanmar.
+        </p>
+        <span class="work-card-tag">Social Enterprise</span>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-card-number">03</div>
+        <h3>City Holdings Limited, Myanmar</h3>
+        <p>
+          I built and led corporate communications across six business sectors. Developed
+          crisis communications frameworks, launched the first loyalty app in-country, and
+          led digital transformation communications through the Covid-19 period and the
+          2021 coup.
+        </p>
+        <span class="work-card-tag">Corporate Communications</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="skills-grid container">
+      <div class="skills-col reveal">
+        <p class="label">Languages</p>
+        <h2 style="margin-bottom:40px;">Speaking across borders.</h2>
+        <ul class="language-list">
+          <li class="language-item">
+            <span class="language-name">English</span>
+            <div class="language-bar-bg"><div class="language-bar-fill" data-width="97"></div></div>
+          </li>
+          <li class="language-item">
+            <span class="language-name">Bahasa Melayu</span>
+            <div class="language-bar-bg"><div class="language-bar-fill" data-width="90"></div></div>
+          </li>
+          <li class="language-item">
+            <span class="language-name">Mandarin</span>
+            <div class="language-bar-bg"><div class="language-bar-fill" data-width="55"></div></div>
+          </li>
+          <li class="language-item">
+            <span class="language-name">Cantonese</span>
+            <div class="language-bar-bg"><div class="language-bar-fill" data-width="70"></div></div>
+          </li>
+          <li class="language-item">
+            <span class="language-name">Burmese</span>
+            <div class="language-bar-bg"><div class="language-bar-fill" data-width="30"></div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="skills-col reveal">
+        <p class="label">Professional Profile</p>
+        <h2 style="margin-bottom:40px;">How Eileen works.</h2>
+        <div class="archetype-grid">
+          <div class="archetype-card">
+            <h3>Organizer</h3>
+            <p>Conscientious, efficient, and detail-oriented. Thrives when given autonomy to execute.</p>
+          </div>
+          <div class="archetype-card">
+            <h3>Protector</h3>
+            <p>Dutiful, organized, and fair. Leads by creating accountability without hierarchy.</p>
+          </div>
+          <div class="archetype-card">
+            <h3>Idealist</h3>
+            <p>Curious and driven by strong values. Asks the question others avoid.</p>
+          </div>
+          <div class="archetype-card">
+            <h3>Humanitarian</h3>
+            <p>Empathetic and solutions-focused. Motivated by work that creates positive change.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="timeline-header container reveal">
+      <p class="label">Career</p>
+      <h2 style="color:#F8F6F3;">25 years across Asia.</h2>
+    </div>
+    <div class="timeline-scroll">
+      <div class="timeline-track">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">1999</div>
+          <div class="timeline-role">Account Manager</div>
+          <div class="timeline-org">Batey Ads, Malaysia</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2001</div>
+          <div class="timeline-role">Country Manager</div>
+          <div class="timeline-org">adpeople and IMAC, Cambodia and Vietnam</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2002</div>
+          <div class="timeline-role">Client Services Director</div>
+          <div class="timeline-org">Mai Thanh Advertising, Vietnam</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2004</div>
+          <div class="timeline-role">Director</div>
+          <div class="timeline-org">Nupts and Such, Malaysia and Cambodia</div>
+        </div>
+        <div class="timeline-item pivot reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2012</div>
+          <div class="timeline-role">Marketing Communications Consultant</div>
+          <div class="timeline-org">City Mart Holdings, Myanmar</div>
+        </div>
+        <div class="timeline-item pivot reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2015</div>
+          <div class="timeline-role">Founder</div>
+          <div class="timeline-org">Children of Tomorrow Youth Centre and SoyAi</div>
+        </div>
+        <div class="timeline-item pivot reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2017</div>
+          <div class="timeline-role">ASEAN Impact Challenge Winner</div>
+          <div class="timeline-org">SoyAi, representing Myanmar</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2019</div>
+          <div class="timeline-role">Group Corporate Communications Consultant</div>
+          <div class="timeline-org">City Holdings Limited, Myanmar</div>
+        </div>
+        <div class="timeline-item pivot reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">2021</div>
+          <div class="timeline-role">Managing Editor</div>
+          <div class="timeline-org">Cuttlefish Media, ETA and CITA, Thailand</div>
+        </div>
+        <div class="timeline-item pivot reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-year">Now</div>
+          <div class="timeline-role">Seeking humanitarian roles</div>
+          <div class="timeline-org">Open to staff, consultancy, and volunteer work</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND -->
+  <section id="beyond">
+    <div class="beyond-grid container">
+      <div class="beyond-items reveal">
+        <div>
+          <p class="label" style="margin-bottom:16px;">Beyond Work</p>
+          <h2 style="margin-bottom:40px;">The same discipline, applied everywhere.</h2>
+        </div>
+        <div class="beyond-item">
+          <div class="beyond-divider"></div>
+          <h3>Competitive Triathlete</h3>
+          <p>I have been racing since 2006, with consistent top 10 finishes. CrossFit L2 certified and trained in MMA. Sport is where the values of tenacity and discipline become concrete, not just claimed.</p>
+        </div>
+        <div class="beyond-item">
+          <div class="beyond-divider"></div>
+          <h3>The Mobile Soup Movement</h3>
+          <p>Since 2015, a portion of my monthly income has gone into preparing 100 care packages each month for poor and homeless communities. Scaled to food and livelihood support during Myanmar's Covid-19 crisis.</p>
+        </div>
+        <div class="beyond-item">
+          <div class="beyond-divider"></div>
+          <h3>Lecturer and Speaker</h3>
+          <p>I lecture part-time at Strategy First University Myanmar, teaching ICM Advertising and CIM Digital Strategy to working adults. I also facilitate workshops on digital communications and women's empowerment.</p>
+        </div>
+      </div>
+      <div class="slider reveal" id="beyondSlider">
+        <div class="slider-track" id="beyondTrack">
+          <img src="eileen-photo.jpg" alt="Beyond work" />
+        </div>
+        <div class="slider-arrows">
+          <button class="slider-arrow" onclick="slideMove('beyondTrack',-1)">&#8592;</button>
+          <button class="slider-arrow" onclick="slideMove('beyondTrack',1)">&#8594;</button>
+        </div>
+        <div class="slider-nav" id="beyondDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="label">Contact</p>
+      <h2>Let's have a conversation.</h2>
+      <p>Whether you have a role, a project, or simply want to connect, reach out directly. Even a chat is a good place to start.</p>
+      <div class="contact-links">
+        <a href="mailto:eileenlui@gmail.com" class="contact-link">Email</a>
+        <a href="https://www.linkedin.com/in/eileen-lui-419448/" target="_blank" class="contact-link">LinkedIn</a>
+        <a href="https://wa.me/60123177788" target="_blank" class="contact-link">WhatsApp</a>
+        <a href="eileen-cv.pdf" target="_blank" class="contact-link">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Eileen Lui &copy; 2025. Built on GitHub, hosted on Vercel.</p>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Mobile nav
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navMobile').classList.toggle('open');
+    });
+    function closeMobileNav() {
+      document.getElementById('navMobile').classList.remove('open');
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Counters
+    const cObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.dataset.target);
+        const step = target / (1800 / 16);
+        let cur = 0;
+        const t = setInterval(() => {
+          cur += step;
+          if (cur >= target) { el.textContent = target.toLocaleString(); clearInterval(t); }
+          else el.textContent = Math.floor(cur).toLocaleString();
+        }, 16);
+        cObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(el => cObs.observe(el));
+
+    // Language bars
+    const bObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.style.width = e.target.dataset.width + '%'; bObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.language-bar-fill').forEach(el => bObs.observe(el));
+
+    // Slider
+    const sliderState = {};
+    function slideMove(trackId, dir) {
+      const track = document.getElementById(trackId);
+      const imgs = track.querySelectorAll('img');
+      if (!sliderState[trackId]) sliderState[trackId] = 0;
+      sliderState[trackId] += dir;
+      if (sliderState[trackId] < 0) sliderState[trackId] = imgs.length - 1;
+      if (sliderState[trackId] >= imgs.length) sliderState[trackId] = 0;
+      track.style.transform = `translateX(-${sliderState[trackId] * 100}%)`;
+      updateDots(trackId, imgs.length);
+    }
+    function updateDots(trackId, total) {
+      const dc = document.getElementById(trackId.replace('Track','Dots'));
+      if (!dc) return;
+      dc.querySelectorAll('.slider-dot').forEach((d,i) => d.classList.toggle('active', i === sliderState[trackId]));
+    }
+    function initSlider(trackId) {
+      const track = document.getElementById(trackId);
+      if (!track) return;
+      const imgs = track.querySelectorAll('img');
+      const dc = document.getElementById(trackId.replace('Track','Dots'));
+      if (!dc) return;
+      imgs.forEach((_,i) => {
+        const dot = document.createElement('button');
+        dot.className = 'slider-dot' + (i===0?' active':'');
+        dot.onclick = () => { sliderState[trackId]=i; track.style.transform=`translateX(-${i*100}%)`; updateDots(trackId,imgs.length); };
+        dc.appendChild(dot);
+      });
+    }
+    initSlider('aboutTrack');
+    initSlider('beyondTrack');
+  </script>
+</body>
+</html>
