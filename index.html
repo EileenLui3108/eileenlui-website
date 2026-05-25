@@ -221,16 +221,22 @@
       nav { padding: 16px 20px; }
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
-      #hero { grid-template-columns: 1fr; min-height: auto; padding: 100px 20px 60px; gap: 40px; }
+      #hero { grid-template-columns: 1fr; min-height: auto; padding: 88px 20px 60px; gap: 32px; }
       .hero-image-wrap { order: -1; }
-      .hero-image-wrap img { height: 400px; max-width: 100%; }
+      .hero-image-wrap img { height: 320px; max-width: 100%; object-fit: cover; object-position: center top; }
       .hero-image-wrap::after { display: none; }
+      .hero-title { font-size: 3.2rem; }
+      .hero-tagline { font-size: 1rem; }
+      .scroll-indicator { display: none; }
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
       .about-grid, .skills-grid, .beyond-grid { grid-template-columns: 1fr; gap: 48px; }
+      .slider-track img { height: 300px !important; }
       .work-grid { grid-template-columns: 1fr; gap: 20px; }
+      .work-card .slider-track img { height: 200px !important; }
       .archetype-grid { grid-template-columns: 1fr; }
-      .radar-layout { grid-template-columns: 1fr; gap: 40px; }
+      .skillviz-layout { grid-template-columns: 1fr; gap: 36px; }
       .media-grid { grid-template-columns: 1fr; }
+      .beyond-slider-sticky { position: static; }
       #contact { padding: 80px 20px; }
       .contact-links { flex-direction: column; align-items: center; }
     }
@@ -267,7 +273,7 @@
 
   <!-- HERO -->
   <div style="max-width:var(--max-w);margin:0 auto;">
-    <section id="hero" style="padding:120px 24px 80px;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px;">
+    <section id="hero">
       <div class="hero-content reveal">
         <p class="label">Strategic Content and Communications</p>
         <h1 class="hero-title">Eileen<br><span>Lui</span></h1>
