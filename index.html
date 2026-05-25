@@ -3,21 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Eileen Lui — Strategic Content and Communications Leader. 20+ years building editorial programs, teams, and impact across Asia." />
-  <meta property="og:title" content="Eileen Lui — Strategic Content and Communications" />
-  <meta property="og:description" content="20 years of turning vision into reality. Editorial programs, teams, and systems that make complex ideas land with the people who need to hear them." />
+
+  <!-- Primary SEO -->
+  <title>Eileen Lui | Strategic Communications Leader | Humanitarian Sector</title>
+  <meta name="description" content="Eileen Lui is a multilingual strategic communications leader with 20+ years across Southeast Asia. Open to humanitarian roles, consultancy, and volunteer work in conflict-affected settings including Syria." />
+  <meta name="keywords" content="Eileen Lui, strategic communications, humanitarian communications, content strategy, editorial leadership, INGO communications, Southeast Asia, Myanmar, climate communications, Energy Tracker Asia" />
+  <meta name="author" content="Eileen Lui" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://eileenlui.com" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Eileen Lui — Strategic Communications Leader" />
+  <meta property="og:description" content="Multilingual communications leader with 20+ years across Southeast Asia. Open to humanitarian roles, consultancy, and volunteer work in conflict-affected settings." />
   <meta property="og:image" content="https://eileenlui-website.vercel.app/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Eileen Lui — Strategic Communications Leader" />
   <meta property="og:url" content="https://eileenlui-website.vercel.app" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:site_name" content="Eileen Lui" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Eileen Lui — Strategic Content and Communications" />
-  <meta name="twitter:description" content="20 years of turning vision into reality. Editorial programs, teams, and systems that make complex ideas land." />
+  <meta name="twitter:title" content="Eileen Lui — Strategic Communications Leader" />
+  <meta name="twitter:description" content="Multilingual communications leader with 20+ years across Southeast Asia. Open to humanitarian roles and consultancy." />
   <meta name="twitter:image" content="https://eileenlui-website.vercel.app/og-image.jpg" />
-  <title>Eileen Lui</title>
+  <meta name="twitter:image:alt" content="Eileen Lui — Strategic Communications Leader" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Eileen Lui",
+    "jobTitle": "Strategic Communications Leader",
+    "description": "Multilingual communications leader with 20+ years of experience across Southeast and East Asia. Specialising in editorial leadership, content strategy, humanitarian communications, and crisis communications.",
+    "url": "https://eileenlui.com",
+    "image": "https://eileenlui-website.vercel.app/eileen-photo.jpg",
+    "email": "eileenlui@gmail.com",
+    "telephone": "+60123177788",
+    "sameAs": [
+      "https://www.linkedin.com/in/eileen-lui-419448/"
+    ],
+    "knowsLanguage": ["English", "Bahasa Melayu", "Mandarin", "Cantonese", "Burmese"],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Communications Leader",
+      "occupationLocation": {
+        "@type": "Country",
+        "name": "Thailand"
+      }
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "Charles Sturt University",
+        "address": { "@type": "PostalAddress", "addressCountry": "AU" }
+      }
+    ],
+    "award": "ASEAN Impact Challenge 2017, Myanmar (SoyAi)",
+    "seeks": {
+      "@type": "JobPosting",
+      "description": "Humanitarian communications roles, consultancy, and volunteer work in conflict-affected settings including Syria",
+      "industry": "Humanitarian / INGO"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="preload" as="image" href="eileen-photo.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -256,7 +312,7 @@
 <body>
 
   <!-- NAV -->
-  <nav id="nav">
+  <nav id="nav" aria-label="Main navigation">
     <div class="nav-logo">Eileen Lui</div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -272,7 +328,7 @@
     </button>
   </nav>
 
-  <div class="nav-mobile" id="navMobile">
+  <div class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
     <a href="#about"    onclick="closeMobileNav()">About</a>
     <a href="#work"     onclick="closeMobileNav()">Work</a>
     <a href="#skills"   onclick="closeMobileNav()">Skills</a>
@@ -300,7 +356,7 @@
         </div>
       </div>
       <div class="hero-image-wrap reveal">
-        <img src="eileen-photo.jpg" alt="Eileen Lui" />
+        <img src="eileen-photo.jpg" alt="Eileen Lui, Strategic Communications Leader" fetchpriority="high" />
       </div>
     </section>
   </div>
@@ -367,10 +423,10 @@
       </div>
       <div class="slider reveal" id="aboutSlider">
         <div class="slider-track" id="aboutTrack">
-          <img src="about-2.jpg" alt="Panelist at Digital Empathy: Reporting Like a Humanitarian, ICRC Media Workshop" />
-          <img src="about-3.jpg" alt="Panelist at Women's Week, The Future Is Female, KBZ Bank" />
-          <img src="about-1.jpg" alt="Speaking on ZMOT at the Myanmar Retail Summit 2020" />
-          <img src="about-4.jpg" alt="MARCOMS and Digital Strategy Lecturer at Strategy First University" />
+          <img loading="lazy" src="about-2.jpg" alt="Panelist at Digital Empathy: Reporting Like a Humanitarian, ICRC Media Workshop" />
+          <img loading="lazy" src="about-3.jpg" alt="Panelist at Women's Week, The Future Is Female, KBZ Bank" />
+          <img loading="lazy" src="about-1.jpg" alt="Speaking on ZMOT at the Myanmar Retail Summit 2020" />
+          <img loading="lazy" src="about-4.jpg" alt="MARCOMS and Digital Strategy Lecturer at Strategy First University" />
         </div>
         <div class="slider-arrows">
           <button class="slider-arrow" onclick="slideMove('aboutTrack',-1)">&#8592;</button>
@@ -391,10 +447,10 @@
       <div class="work-card reveal">
         <div class="slider">
           <div class="slider-track" id="work1Track">
-            <img src="work1-1.jpg" alt="Workshop facilitation" />
-            <img src="work1-2.jpg" alt="Panelist at ONE Championship Myanmar" />
-            <img src="work1-3.jpg" alt="Speaking at major event" />
-            <img src="work1-4.jpg" alt="Workshop session" />
+            <img loading="lazy" src="work1-1.jpg" alt="Workshop facilitation" />
+            <img loading="lazy" src="work1-2.jpg" alt="Panelist at ONE Championship Myanmar" />
+            <img loading="lazy" src="work1-3.jpg" alt="Speaking at major event" />
+            <img loading="lazy" src="work1-4.jpg" alt="Workshop session" />
           </div>
           <div class="slider-arrows">
             <button class="slider-arrow" onclick="slideMove('work1Track',-1)">&#8592;</button>
@@ -414,9 +470,9 @@
       <div class="work-card reveal">
         <div class="slider">
           <div class="slider-track" id="work2Track">
-            <img src="work2-1.jpg" alt="Children of Tomorrow group photo" />
-            <img src="work2-2.jpg" alt="Children of Tomorrow classroom" />
-            <img src="work2-3.jpg" alt="SoyAi youth training" />
+            <img loading="lazy" src="work2-1.jpg" alt="Children of Tomorrow group photo" />
+            <img loading="lazy" src="work2-2.jpg" alt="Children of Tomorrow classroom" />
+            <img loading="lazy" src="work2-3.jpg" alt="SoyAi youth training" />
           </div>
           <div class="slider-arrows">
             <button class="slider-arrow" onclick="slideMove('work2Track',-1)">&#8592;</button>
@@ -436,7 +492,7 @@
       <div class="work-card reveal">
         <div class="slider">
           <div class="slider-track" id="work3Track">
-            <img src="work3-1.jpg" alt="Samsung Galaxy influencer partnership" />
+            <img loading="lazy" src="work3-1.jpg" alt="Samsung Galaxy influencer partnership" />
           </div>
           <div class="slider-arrows">
             <button class="slider-arrow" onclick="slideMove('work3Track',-1)">&#8592;</button>
@@ -719,11 +775,11 @@
       </div>
       <div class="slider reveal beyond-slider-sticky" id="beyondSlider">
         <div class="slider-track" id="beyondTrack">
-          <img src="beyond-1.jpg" alt="Bangkok Triathlon" />
-          <img src="beyond-2.jpg" alt="YOMA Marathon 2020" />
-          <img src="beyond-3.jpg" alt="FitFam team" />
-          <img src="beyond-4.jpg" alt="Delivering care packages to communities" />
-          <img src="beyond-5.jpg" alt="Handing out care packages" />
+          <img loading="lazy" src="beyond-1.jpg" alt="Bangkok Triathlon" />
+          <img loading="lazy" src="beyond-2.jpg" alt="YOMA Marathon 2020" />
+          <img loading="lazy" src="beyond-3.jpg" alt="FitFam team" />
+          <img loading="lazy" src="beyond-4.jpg" alt="Delivering care packages to communities" />
+          <img loading="lazy" src="beyond-5.jpg" alt="Handing out care packages" />
         </div>
         <div class="slider-arrows">
           <button class="slider-arrow" onclick="slideMove('beyondTrack',-1)">&#8592;</button>
