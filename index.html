@@ -199,6 +199,8 @@
     .humanitarian-note { font-size: 0.82rem; color: var(--accent); border-left: 2px solid var(--accent); padding-left: 10px; font-style: italic; display: block; margin-top: 6px; opacity: 0.85; }
     .beyond-divider { width: 32px; height: 2px; background: var(--accent); margin-bottom: 16px; }
     .beyond-subtitle { font-size: 0.95rem; color: var(--text-light); font-style: italic; margin-bottom: 40px; max-width: 56ch; }
+    .beyond-slider-sticky { position: sticky; top: 88px; }
+    .beyond-slider-sticky .slider-track img { height: 560px; object-fit: cover; }
 
     /* Contact */
     #contact { background: var(--bg-dark); padding: 120px 24px; text-align: center; }
@@ -698,7 +700,7 @@
           <p>I am guided by the principles of localization, accountability to affected populations, do no harm, and dignity-driven programming. These are not terms I use lightly. They are the framework I have applied in Myanmar's most difficult years, and the framework I will bring to humanitarian organizations working in any conflict-affected settings.</p>
         </div>
       </div>
-      <div class="slider reveal" id="beyondSlider">
+      <div class="slider reveal beyond-slider-sticky" id="beyondSlider">
         <div class="slider-track" id="beyondTrack">
           <img src="beyond-1.jpg" alt="Bangkok Triathlon" />
           <img src="beyond-2.jpg" alt="YOMA Marathon 2020" />
