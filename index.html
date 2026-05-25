@@ -111,6 +111,7 @@
     .work-card-number { font-family: var(--font-serif); font-size: 3rem; color: #686468; line-height: 1; margin-bottom: 24px; }
     .work-card h3 { color: #F8F6F3; margin-bottom: 12px; }
     .work-card p { color: #B8B4AF; font-size: 0.9rem; max-width: none; }
+    .work-card-bold { color: #fff !important; font-size: 0.88rem !important; font-weight: 600 !important; font-style: italic; margin-top: 12px !important; border-left: 2px solid var(--accent); padding-left: 10px; }
     .work-card-tag { display: inline-block; margin-top: 20px; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
     .work-card .slider { border-bottom: 2px solid #1C1C1E; }
     .work-card .slider-track img { height: 220px; object-fit: cover; min-width: 100%; }
@@ -140,6 +141,41 @@
     .archetype-card h3 { font-size: 1rem; margin-bottom: 6px; }
     .archetype-card p { font-size: 0.82rem; color: var(--text-light); max-width: none; }
 
+    /* Soft skills dataviz */
+    .softskills-section { margin-top: 80px; max-width: var(--max-w); margin-left: auto; margin-right: auto; }
+    .softskills-section .label { margin-bottom: 24px; }
+    .softskills-section h2 { margin-bottom: 16px; }
+    .softskills-intro { font-size: 0.95rem; color: var(--text-light); margin-bottom: 56px; max-width: 52ch; }
+    .skillviz-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .skillviz-cluster { }
+    .skillviz-cluster-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .skillviz-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .skillviz-cluster-name { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+    .skillviz-bars { display: flex; flex-direction: column; gap: 11px; }
+    .skillviz-row { display: flex; flex-direction: column; gap: 5px; }
+    .skillviz-row-top { display: flex; justify-content: space-between; align-items: baseline; }
+    .skillviz-label { font-size: 0.8rem; font-weight: 500; color: var(--text); }
+    .skillviz-pct { font-size: 0.68rem; font-weight: 500; color: var(--text-light); }
+    .skillviz-track { height: 5px; background: var(--divider); border-radius: 3px; overflow: hidden; }
+    .skillviz-fill { height: 100%; border-radius: 3px; width: 0; transition: width 1.4s cubic-bezier(0.16,1,0.3,1); }
+    .skillviz-fill.c-strategy  { background: #E8007D; }
+    .skillviz-fill.c-leadership { background: #7C3AED; }
+    .skillviz-fill.c-craft     { background: #0891B2; }
+    .skillviz-fill.c-human     { background: #059669; }
+
+    /* Media */
+    #media { background: var(--bg-dark); padding: var(--section-pad); }
+    .media-header { max-width: var(--max-w); margin: 0 auto 56px; }
+    .media-header .label { margin-bottom: 16px; color: #B8B4AF; }
+    .media-header h2 { color: #F8F6F3; }
+    .media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: var(--max-w); margin: 0 auto; }
+    .media-card { background: #303032; padding: 32px; border-left: 3px solid transparent; transition: border-color 0.25s; }
+    .media-card:hover { border-left-color: var(--accent); }
+    .media-card h3 { font-family: var(--font-serif); font-size: 1.05rem; color: #F8F6F3; margin-bottom: 6px; }
+    .media-outlet { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 12px; }
+    .media-card p { font-size: 0.88rem; color: #B8B4AF; max-width: none; }
+    .media-card a { color: var(--accent); text-decoration: underline; }
+
     /* Timeline */
     #timeline { background: var(--bg-dark); padding: var(--section-pad); overflow: hidden; }
     .timeline-header { max-width: var(--max-w); margin: 0 auto 56px; }
@@ -157,9 +193,12 @@
     #beyond { padding: var(--section-pad); }
     .beyond-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: var(--max-w); margin: 0 auto; }
     .beyond-items { display: flex; flex-direction: column; gap: 40px; }
-    .beyond-item h3 { font-size: 1.1rem; margin-bottom: 8px; }
-    .beyond-item p { font-size: 0.9rem; color: var(--text-light); max-width: none; }
+    .beyond-item h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    .beyond-tagline { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 10px; }
+    .beyond-item p { font-size: 0.9rem; color: var(--text-light); max-width: none; margin-bottom: 8px; }
+    .humanitarian-note { font-size: 0.82rem; color: var(--accent); border-left: 2px solid var(--accent); padding-left: 10px; font-style: italic; display: block; margin-top: 6px; opacity: 0.85; }
     .beyond-divider { width: 32px; height: 2px; background: var(--accent); margin-bottom: 16px; }
+    .beyond-subtitle { font-size: 0.95rem; color: var(--text-light); font-style: italic; margin-bottom: 40px; max-width: 56ch; }
 
     /* Contact */
     #contact { background: var(--bg-dark); padding: 120px 24px; text-align: center; }
@@ -188,6 +227,8 @@
       .about-grid, .skills-grid, .beyond-grid { grid-template-columns: 1fr; gap: 48px; }
       .work-grid { grid-template-columns: 1fr; gap: 20px; }
       .archetype-grid { grid-template-columns: 1fr; }
+      .radar-layout { grid-template-columns: 1fr; gap: 40px; }
+      .media-grid { grid-template-columns: 1fr; }
       #contact { padding: 80px 20px; }
       .contact-links { flex-direction: column; align-items: center; }
     }
@@ -203,6 +244,7 @@
       <li><a href="#work">Work</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#timeline">Career</a></li>
+      <li><a href="#media">Media</a></li>
       <li><a href="#beyond">Beyond</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -216,6 +258,7 @@
     <a href="#work"     onclick="closeMobileNav()">Work</a>
     <a href="#skills"   onclick="closeMobileNav()">Skills</a>
     <a href="#timeline" onclick="closeMobileNav()">Career</a>
+    <a href="#media"    onclick="closeMobileNav()">Media</a>
     <a href="#beyond"   onclick="closeMobileNav()">Beyond</a>
     <a href="#contact"  onclick="closeMobileNav()">Contact</a>
   </div>
@@ -298,8 +341,9 @@
           Today, I am focused on applying those skills where they are needed most. A belief
           that communications done well is one of the most powerful tools available to
           humanitarian work, and a promise I intend to keep, brought me to this point. I am
-          actively seeking roles, consultancies, and volunteer opportunities with organizations
-          working in conflict-affected and fragile contexts.
+          open to roles, consultancy, and volunteer roles where strategic communications can
+          directly support protection, livelihoods, and community resilience in
+          conflict-affected settings, including Syria.
         </p>
       </div>
       <div class="slider reveal" id="aboutSlider">
@@ -343,6 +387,7 @@
           <div class="work-card-number">01</div>
           <h3>Energy Tracker Asia and Climate Impacts Tracker Asia</h3>
           <p>I built the editorial program, content strategy, SEO framework, social teams, newsletter, and podcast infrastructure for two climate media platforms from scratch. Grew combined organic traffic by 1,966% over three years.</p>
+          <p class="work-card-bold">This work matters because accessible climate information enables vulnerable communities to advocate for their own protection and adaptation.</p>
           <span class="work-card-tag">Editorial Leadership</span>
         </div>
       </div>
@@ -364,6 +409,7 @@
           <div class="work-card-number">02</div>
           <h3>SoyAi and Children of Tomorrow Youth Centre</h3>
           <p>I co-founded a youth centre in Myanmar serving children from orphanages and homes. Launched SoyAi, a social enterprise producing soy milk and tofu run by youth graduates. Winner of the ASEAN Impact Challenge 2017 for Myanmar.</p>
+          <p class="work-card-bold">This is a localization model: a youth-run, financially self-sustaining social enterprise. It demonstrates how livelihood programming can be owned by the community itself.</p>
           <span class="work-card-tag">Social Enterprise</span>
         </div>
       </div>
@@ -383,6 +429,7 @@
           <div class="work-card-number">03</div>
           <h3>City Holdings Limited, Myanmar</h3>
           <p>I built and led corporate communications across six business sectors. Developed crisis communications frameworks, launched the first loyalty app in-country, and led digital transformation communications through the Covid-19 period and the 2021 coup.</p>
+          <p class="work-card-bold">Maintaining communications and operations through the 2021 coup and COVID-19 required working under active access and security constraints, directly transferable skills for humanitarian contexts.</p>
           <span class="work-card-tag">Corporate Communications</span>
         </div>
       </div>
@@ -439,6 +486,68 @@
             <p>Empathetic and solutions-focused. Motivated by work that creates positive change.</p>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Soft Skills Data Viz -->
+    <div class="softskills-section container reveal" style="margin-top:80px;">
+      <p class="label">Soft Skills</p>
+      <h2>The full range.</h2>
+      <p class="softskills-intro">Four capability clusters. Each bar reflects depth of applied experience across 20+ years.</p>
+      <div class="skillviz-layout">
+
+        <div class="skillviz-cluster">
+          <div class="skillviz-cluster-header">
+            <div class="skillviz-dot" style="background:#E8007D;"></div>
+            <span class="skillviz-cluster-name" style="color:#E8007D;">Strategy</span>
+          </div>
+          <div class="skillviz-bars">
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Content Strategy</span><span class="skillviz-pct">97%</span></div><div class="skillviz-track"><div class="skillviz-fill c-strategy" data-w="97"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Strategic Communications</span><span class="skillviz-pct">95%</span></div><div class="skillviz-track"><div class="skillviz-fill c-strategy" data-w="95"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Storytelling &amp; Branding</span><span class="skillviz-pct">96%</span></div><div class="skillviz-track"><div class="skillviz-fill c-strategy" data-w="96"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">SEO &amp; Digital Growth</span><span class="skillviz-pct">88%</span></div><div class="skillviz-track"><div class="skillviz-fill c-strategy" data-w="88"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skillviz-cluster">
+          <div class="skillviz-cluster-header">
+            <div class="skillviz-dot" style="background:#7C3AED;"></div>
+            <span class="skillviz-cluster-name" style="color:#7C3AED;">Leadership</span>
+          </div>
+          <div class="skillviz-bars">
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Team Leadership</span><span class="skillviz-pct">93%</span></div><div class="skillviz-track"><div class="skillviz-fill c-leadership" data-w="93"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Mentor-Style Management</span><span class="skillviz-pct">94%</span></div><div class="skillviz-track"><div class="skillviz-fill c-leadership" data-w="94"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Project Management</span><span class="skillviz-pct">90%</span></div><div class="skillviz-track"><div class="skillviz-fill c-leadership" data-w="90"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Capacity Building</span><span class="skillviz-pct">92%</span></div><div class="skillviz-track"><div class="skillviz-fill c-leadership" data-w="92"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skillviz-cluster">
+          <div class="skillviz-cluster-header">
+            <div class="skillviz-dot" style="background:#0891B2;"></div>
+            <span class="skillviz-cluster-name" style="color:#0891B2;">Craft</span>
+          </div>
+          <div class="skillviz-bars">
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Editorial Judgment</span><span class="skillviz-pct">97%</span></div><div class="skillviz-track"><div class="skillviz-fill c-craft" data-w="97"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Writing &amp; Editing</span><span class="skillviz-pct">98%</span></div><div class="skillviz-track"><div class="skillviz-fill c-craft" data-w="98"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Crisis Communications</span><span class="skillviz-pct">89%</span></div><div class="skillviz-track"><div class="skillviz-fill c-craft" data-w="89"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Paid &amp; Organic Digital</span><span class="skillviz-pct">85%</span></div><div class="skillviz-track"><div class="skillviz-fill c-craft" data-w="85"></div></div></div>
+          </div>
+        </div>
+
+        <div class="skillviz-cluster">
+          <div class="skillviz-cluster-header">
+            <div class="skillviz-dot" style="background:#059669;"></div>
+            <span class="skillviz-cluster-name" style="color:#059669;">Human</span>
+          </div>
+          <div class="skillviz-bars">
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Stakeholder Engagement</span><span class="skillviz-pct">92%</span></div><div class="skillviz-track"><div class="skillviz-fill c-human" data-w="92"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Relationship Building</span><span class="skillviz-pct">94%</span></div><div class="skillviz-track"><div class="skillviz-fill c-human" data-w="94"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Facilitation</span><span class="skillviz-pct">90%</span></div><div class="skillviz-track"><div class="skillviz-fill c-human" data-w="90"></div></div></div>
+            <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Community Resilience</span><span class="skillviz-pct">88%</span></div><div class="skillviz-track"><div class="skillviz-fill c-human" data-w="88"></div></div></div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -515,28 +624,78 @@
     </div>
   </section>
 
+  <!-- MEDIA & CONTRIBUTIONS -->
+  <section id="media">
+    <div class="media-header container reveal">
+      <p class="label">Media &amp; Contributions</p>
+      <h2 style="color:#F8F6F3;">Published. On record.</h2>
+    </div>
+    <div class="media-grid container">
+      <div class="media-card reveal">
+        <h3>Freelance Writer &amp; Columnist</h3>
+        <span class="media-outlet">New Strait Times, Malaysia</span>
+        <p>Regular columns and freelance contributions to one of Malaysia's leading English-language newspapers.</p>
+      </div>
+      <div class="media-card reveal">
+        <h3>Part-time Contributor</h3>
+        <span class="media-outlet">Myanmar Times (English Edition)</span>
+        <p>Ongoing contributor to Myanmar's leading English-language publication. Best investigative article: <a href="https://aseandigest.net/2020/01/27/myanmar-drug-scourge-engulfs-scenic-puta-o-town/" target="_blank" rel="noopener">Myanmar Drug Scourge Engulfs Scenic Putao Town</a>.</p>
+      </div>
+      <div class="media-card reveal">
+        <h3>Published Short Story</h3>
+        <span class="media-outlet">Silverfish Best 25 Short Stories 2004, Winner</span>
+        <p>Selected for Silverfish Publications' annual anthology of the best short fiction from Southeast Asia, Malaysia.</p>
+      </div>
+      <div class="media-card reveal">
+        <h3>Freelance Writer</h3>
+        <span class="media-outlet">Women's Weekly, Malaysia</span>
+        <p>Feature writing for one of Malaysia's most widely read women's magazines.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- BEYOND -->
   <section id="beyond">
     <div class="beyond-grid container">
       <div class="beyond-items reveal">
         <div>
-          <p class="label" style="margin-bottom:16px;">Beyond Work</p>
-          <h2 style="margin-bottom:40px;">The same discipline, applied everywhere.</h2>
+          <p class="label" style="margin-bottom:12px;">Beyond Work</p>
+          <h2 style="margin-bottom:16px;">The same discipline, applied everywhere.</h2>
+          <p class="beyond-subtitle">Including community resilience and protection.</p>
         </div>
         <div class="beyond-item">
           <div class="beyond-divider"></div>
-          <h3>Competitive Triathlete</h3>
-          <p>I have been racing since 2006, with consistent top 10 finishes. CrossFit L2 certified and trained in MMA. Sport is where the values of tenacity and discipline become concrete, not just claimed.</p>
+          <h3>Children of Tomorrow Youth Centre &amp; SoyAi</h3>
+          <span class="beyond-tagline">A localized, community-owned livelihood model.</span>
+          <p>Together with my husband, we co-founded a youth centre serving children from orphanages and homes in Myanmar. Rather than charity, we built SoyAi, a social enterprise producing soy milk and tofu, run entirely by youths from marginalized communities. This is a localization approach: the community owns the business, the skills, and the income. It won the ASEAN Impact Challenge 2017 for Myanmar.</p>
+          <span class="humanitarian-note">Humanitarian relevance: Self-sustaining livelihoods, youth agency, and community ownership, directly transferable to humanitarian programming models that prioritize dignity over dependency.</span>
         </div>
         <div class="beyond-item">
           <div class="beyond-divider"></div>
           <h3>The Mobile Soup Movement</h3>
-          <p>Since 2015, a portion of my monthly income has gone into preparing 100 care packages each month for poor and homeless communities. Scaled to food and livelihood support during Myanmar's Covid-19 crisis.</p>
+          <span class="beyond-tagline">Informal, sustained protection for the most excluded.</span>
+          <p>Since 2015, I have allocated a portion of my monthly income to prepare 100 care packages each month for poor and homeless communities. During Myanmar's COVID-19 crisis, I scaled this to include food and livelihood support for families who fell outside formal humanitarian assistance: the undocumented, the displaced, and those without NGO access.</p>
+          <span class="humanitarian-note">Humanitarian relevance: Reaching populations not covered by formal aid systems. Sustained, low-ego action over nearly a decade. A working model of informal protection and material support.</span>
         </div>
         <div class="beyond-item">
           <div class="beyond-divider"></div>
-          <h3>Lecturer and Speaker</h3>
-          <p>I lecture part-time at Strategy First University Myanmar, teaching ICM Advertising and CIM Digital Strategy to working adults. I also facilitate workshops on digital communications and women's empowerment.</p>
+          <h3>Competitive Triathlete &amp; Coach</h3>
+          <span class="beyond-tagline">Resilience as a practiced discipline.</span>
+          <p>I have been racing triathlon since 2006, with consistent top 10 finishes. I am CrossFit L2 certified and also trained in MMA. I also coach, translating physical discipline into mental resilience for others.</p>
+          <span class="humanitarian-note">Humanitarian relevance: Humanitarian work demands sustained performance under unpredictable, high-stress conditions. My athletic background is a practice ground for the same discipline, tenacity, and stress management required in conflict-affected field contexts.</span>
+        </div>
+        <div class="beyond-item">
+          <div class="beyond-divider"></div>
+          <h3>Lecturer &amp; Facilitator</h3>
+          <span class="beyond-tagline">Building local capacity, not dependency.</span>
+          <p>I lecture part-time at Strategy First University Myanmar, teaching ICM Advertising and CIM Digital Strategy to working adults. I also facilitate workshops on digital communications and women's empowerment for community-based organizations.</p>
+          <span class="humanitarian-note">Humanitarian relevance: Skills transfer and local capacity building, a core humanitarian principle. My approach prioritizes leaving people with tools they own, not solutions they depend on.</span>
+        </div>
+        <div class="beyond-item">
+          <div class="beyond-divider"></div>
+          <h3>Humanitarian Commitment</h3>
+          <span class="beyond-tagline">Principles I will not compromise.</span>
+          <p>I am guided by the principles of localization, accountability to affected populations, do no harm, and dignity-driven programming. These are not terms I use lightly. They are the framework I have applied in Myanmar's most difficult years, and the framework I will bring to humanitarian organizations working in any conflict-affected settings.</p>
         </div>
       </div>
       <div class="slider reveal" id="beyondSlider">
@@ -553,28 +712,6 @@
         </div>
         <div class="slider-nav" id="beyondDots"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- SHOWCASE STRIP -->
-  <section id="showcase">
-    <div class="showcase-photos reveal">
-      <div class="showcase-person">
-        <img src="showcase-eileen.jpg" alt="Eileen Lui" />
-        <div class="showcase-person-name">Eileen Lui</div>
-      </div>
-      <div class="showcase-person">
-        <img src="showcase-phoe.jpg" alt="Phoe Thaw" />
-        <div class="showcase-person-name">Phoe Thaw</div>
-      </div>
-      <div class="showcase-person">
-        <img src="showcase-sai.jpg" alt="Sai Nyan Linn" />
-        <div class="showcase-person-name">Sai Nyan Linn</div>
-      </div>
-    </div>
-    <div class="showcase-quote reveal">
-      <span class="quote-mark">"</span>
-      <p>An unlikely pairing of athletes from different backgrounds, different countries of origin and different cultures, but sharing one love: sports. Combining mixed martial arts, CrossFit and triathlon. All three athletes have a great attitude towards sports and life altogether. They understand the discipline and the commitment it takes to excel in what they set out to do.</p>
     </div>
   </section>
 
@@ -682,6 +819,19 @@
     initSlider('work1Track');
     initSlider('work2Track');
     initSlider('work3Track');
+
+    // Skill viz bars
+    const svObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.skillviz-fill').forEach(el => {
+            el.style.width = el.dataset.w + '%';
+          });
+          svObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    document.querySelectorAll('.skillviz-layout').forEach(el => svObs.observe(el));
   </script>
 </body>
 </html>
