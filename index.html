@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary SEO -->
-  <title>Eileen Lui | Strategic Communications Leader | Humanitarian Sector</title>
-  <meta name="description" content="Eileen Lui is a multilingual strategic communications leader with 20+ years across Southeast Asia. Open to humanitarian roles, consultancy, and volunteer work in conflict-affected settings including Syria." />
-  <meta name="keywords" content="Eileen Lui, strategic communications, humanitarian communications, content strategy, editorial leadership, INGO communications, Southeast Asia, Myanmar, climate communications, Energy Tracker Asia" />
+  <title>Eileen Lui | Strategic Communications Leader &amp; Author</title>
+  <meta name="description" content="Eileen Lui is a multilingual strategic communications leader with 20+ years across Southeast Asia and author of the memoir Battling The Three Big Bad Cs. Open to humanitarian roles, consultancy, and volunteer work in conflict-affected settings including Syria." />
+  <meta name="keywords" content="Eileen Lui, Eileen Lui author, Battling The Three Big Bad Cs, Myanmar coup memoir, cancer and grief memoir, strategic communications, humanitarian communications, content strategy, editorial leadership, INGO communications, Southeast Asia, Myanmar, climate communications, Energy Tracker Asia" />
   <meta name="author" content="Eileen Lui" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://eileenlui.com" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Eileen Lui — Strategic Communications Leader" />
-  <meta property="og:description" content="Multilingual communications leader with 20+ years across Southeast Asia. Open to humanitarian roles, consultancy, and volunteer work in conflict-affected settings." />
+  <meta property="og:title" content="Eileen Lui — Strategic Communications Leader &amp; Author" />
+  <meta property="og:description" content="Multilingual communications leader with 20+ years across Southeast Asia, and author of the memoir Battling The Three Big Bad Cs. Open to humanitarian roles, consultancy, and volunteer work in conflict-affected settings." />
   <meta property="og:image" content="https://eileenlui.com/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -36,8 +36,9 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://eileenlui.com/#person",
     "name": "Eileen Lui",
-    "jobTitle": "Strategic Communications Leader",
+    "jobTitle": "Strategic Communications Leader and Author",
     "description": "Multilingual communications leader with 20+ years of experience across Southeast and East Asia. Specialising in editorial leadership, content strategy, humanitarian communications, and crisis communications.",
     "url": "https://eileenlui.com",
     "image": "https://eileenlui.com/eileen-photo.jpg",
@@ -70,9 +71,29 @@
     }
   }
   </script>
+  <!-- Book: Battling The Three Big Bad Cs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "@id": "https://eileenlui.com/battling-the-three-big-bad-cs#book",
+    "name": "Battling The Three Big Bad Cs",
+    "url": "https://eileenlui.com/battling-the-three-big-bad-cs",
+    "image": "https://eileenlui.com/book-cover.jpg",
+    "author": { "@id": "https://eileenlui.com/#person" },
+    "publisher": { "@type": "Organization", "name": "Notion Press" },
+    "inLanguage": "en",
+    "numberOfPages": 216,
+    "isbn": "9798906432872",
+    "genre": ["Memoir", "Biography & Autobiography", "Grief & Bereavement"],
+    "bookFormat": "https://schema.org/Paperback",
+    "description": "Covid. Coup. Cancer. A memoir about three catastrophes that arrived within a few short years of each other \u2014 a global pandemic, Myanmar's military coup, and the cancer that took the love of the author's life \u2014 and about the grief that began long before the death did."
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="preload" as="image" href="book-cover.jpg" />
   <link rel="preload" as="image" href="eileen-photo.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -110,20 +131,46 @@
 
     /* Nav */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s ease, box-shadow 0.3s ease; }
-    nav.scrolled { background: rgba(248,246,243,0.95); backdrop-filter: blur(8px); box-shadow: 0 1px 0 var(--divider); }
+    nav:not(.scrolled) { color: #F8F6F3; }
+    nav.scrolled { background: rgba(248,246,243,0.95); backdrop-filter: blur(8px); box-shadow: 0 1px 0 var(--divider); color: var(--text); }
     .nav-logo { font-family: var(--font-serif); font-size: 1.1rem; }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links { display: flex; gap: 26px; list-style: none; }
     .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
     .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--text); transition: all 0.3s; }
-    .nav-mobile { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 40px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: currentColor; transition: all 0.3s; }
+    .nav-mobile { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); color: var(--text); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
     .nav-mobile.open { display: flex; }
-    .nav-mobile a { font-family: var(--font-serif); font-size: 2rem; }
+    .nav-mobile a { font-family: var(--font-serif); font-size: 1.9rem; }
     .nav-mobile a:hover { color: var(--accent); }
 
+
+    /* ---------- Book announcement band ---------- */
+    #book-band { background: linear-gradient(170deg, #16151A 0%, #1C1C1E 58%, #232227 100%); color: #F8F6F3; padding: 132px 24px 76px; }
+    .bb-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 268px 1fr; gap: 64px; align-items: center; }
+    .bb-cover img { width: 100%; height: auto; box-shadow: 0 28px 64px rgba(0,0,0,0.55); }
+    .bb-badge { display: inline-block; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; background: var(--accent); padding: 6px 13px; margin-bottom: 18px; }
+    .bb-title { font-family: var(--font-serif); font-size: clamp(2rem, 4.2vw, 3.1rem); line-height: 1.12; color: #fff; margin-bottom: 14px; }
+    .bb-title a:hover { color: var(--accent); }
+    .bb-sub { font-family: var(--font-serif); font-size: clamp(1.05rem, 1.9vw, 1.35rem); color: #E4E0DB; line-height: 1.45; margin-bottom: 22px; max-width: 34ch; }
+    .bb-cs { display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 24px; }
+    .bb-c { border: 1px solid #4A4750; padding: 6px 14px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #C9C5C0; }
+    .bb-c strong { color: var(--accent); font-weight: 600; }
+    .bb-quote { border-left: 2px solid var(--accent); padding-left: 20px; margin-bottom: 30px; max-width: 58ch; }
+    .bb-quote p { font-size: 0.95rem; color: #B8B4AF; font-style: italic; max-width: none; }
+    .bb-quote p + p { margin-top: 10px; }
+    .bb-quote strong { color: #F8F6F3; font-style: normal; font-weight: 500; }
+    .bb-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .bb-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; font-size: 0.74rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: 1.5px solid #686468; color: #F8F6F3; transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s; }
+    .bb-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .bb-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .bb-btn.primary:hover { background: #c40069; border-color: #c40069; color: #fff; }
+    .bb-next { margin-top: 26px; font-size: 0.78rem; color: #8A8680; letter-spacing: 0.02em; }
+    .bb-next a { color: #C9C5C0; border-bottom: 1px solid #4A4750; }
+    .bb-next a:hover { color: var(--accent); border-color: var(--accent); }
+
     /* Hero */
-    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 120px 24px 80px; gap: 60px; max-width: var(--max-w); margin: 0 auto; }
+    #hero { display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 88px 24px 80px; gap: 60px; max-width: var(--max-w); margin: 0 auto; }
     .hero-content .label { margin-bottom: 20px; }
     .hero-title { margin-bottom: 24px; }
     .hero-title span { color: var(--accent); }
@@ -279,7 +326,11 @@
       nav { padding: 16px 20px; }
       .nav-links { display: none; }
       .nav-toggle { display: flex; }
-      #hero { grid-template-columns: 1fr; min-height: auto; padding: 88px 20px 60px; gap: 32px; }
+      #book-band { padding: 100px 20px 56px; }
+      .bb-inner { grid-template-columns: 1fr; gap: 30px; }
+      .bb-cover { max-width: 200px; }
+      .bb-actions .bb-btn { flex: 1 1 100%; justify-content: center; }
+      #hero { grid-template-columns: 1fr; min-height: auto; padding: 64px 20px 60px; gap: 32px; }
       .hero-image-wrap { order: -1; }
       .hero-image-wrap img { height: 320px; max-width: 100%; object-fit: cover; object-position: center top; }
       .hero-image-wrap::after { display: none; }
@@ -306,6 +357,7 @@
   <nav id="nav" aria-label="Main navigation">
     <div class="nav-logo">Eileen Lui</div>
     <ul class="nav-links">
+      <li><a href="/battling-the-three-big-bad-cs">Book</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -320,6 +372,7 @@
   </nav>
 
   <div class="nav-mobile" id="navMobile" aria-label="Mobile navigation">
+    <a href="/battling-the-three-big-bad-cs" onclick="closeMobileNav()">Book</a>
     <a href="#about"    onclick="closeMobileNav()">About</a>
     <a href="#work"     onclick="closeMobileNav()">Work</a>
     <a href="#skills"   onclick="closeMobileNav()">Skills</a>
@@ -328,6 +381,46 @@
     <a href="#beyond"   onclick="closeMobileNav()">Beyond</a>
     <a href="#contact"  onclick="closeMobileNav()">Contact</a>
   </div>
+
+  <!-- BOOK ANNOUNCEMENT -->
+  <section id="book-band" aria-labelledby="book-band-title">
+    <div class="bb-inner">
+      <div class="bb-cover reveal">
+        <a href="/battling-the-three-big-bad-cs">
+          <img src="book-cover.jpg" width="768" height="1104"
+               alt="Cover of Battling The Three Big Bad Cs, a memoir by Eileen Lui" fetchpriority="high" />
+        </a>
+      </div>
+      <div class="reveal">
+        <span class="bb-badge">Out now &mdash; my first book</span>
+        <h2 class="bb-title" id="book-band-title">
+          <a href="/battling-the-three-big-bad-cs">Battling The Three Big Bad Cs</a>
+        </h2>
+        <p class="bb-sub">This is not a grief guide. This is what grief actually looks like.</p>
+        <div class="bb-cs">
+          <span class="bb-c"><strong>C</strong>ovid</span>
+          <span class="bb-c"><strong>C</strong>oup</span>
+          <span class="bb-c"><strong>C</strong>ancer</span>
+        </div>
+        <div class="bb-quote">
+          <p>Back in 2016, my husband told me he&rsquo;d invest a sum of money for me to quit my job and
+             write my book. That was how much he believed in me. I didn&rsquo;t believe in myself enough
+             to take up the offer.</p>
+          <p>Well, finally here it is. Not the original idea. Not a potential bestseller.
+             But <strong>I wrote it because he believed.</strong></p>
+        </div>
+        <div class="bb-actions">
+          <a href="/battling-the-three-big-bad-cs" class="bb-btn primary">Read the story</a>
+          <a href="https://notionpress.com/in/read/battling-the-three-big-bad-cs" target="_blank" rel="noopener" class="bb-btn">Notion Press</a>
+          <a href="https://www.amazon.com/Battling-Three-Big-Bad-Cs/dp/B0HF5FF1NS" target="_blank" rel="noopener" class="bb-btn">Amazon</a>
+        </div>
+        <p class="bb-next">
+          More coming &mdash; the next book is already taking shape.
+          <a href="#contact">Tell me to keep you posted</a>.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- HERO -->
   <div style="max-width:var(--max-w);margin:0 auto;">

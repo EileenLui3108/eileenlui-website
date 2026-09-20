@@ -1,0 +1,5 @@
+# https://eileenlui.com
+User-agent: *
+Allow: /
+
+Sitemap: https://eileenlui.com/sitemap.xml
