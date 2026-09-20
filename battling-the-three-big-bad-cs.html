@@ -154,7 +154,7 @@
         "name": "Where can I buy Battling The Three Big Bad Cs?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The book is available from Notion Press and from Amazon in the US, India and the UK, in paperback and hardcover, and as an ebook on Amazon Kindle, Google Play Books and Kobo. Flipkart stocks it in India. ISBN 9798906432872."
+          "text": "In print, Battling The Three Big Bad Cs is available from Notion Press and from Amazon in the US, India and the UK, in both paperback and hardcover. The ebook is available on Kobo. Amazon Kindle and Flipkart editions are on the way. ISBN 9798906432872."
         }
       },
       {
@@ -311,8 +311,8 @@
     #buy h2 { color: #F8F6F3; margin-bottom: 16px; }
     #buy .label { color: #B8B4AF; margin-bottom: 18px; }
     #buy > .container > p { color: #B8B4AF; margin: 0 auto 44px; text-align: center; }
-    .store-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
-    .store-card { border: 1px solid #4A4750; padding: 24px 16px; transition: border-color 0.25s, background 0.25s, transform 0.25s; }
+    .store-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; max-width: 980px; margin: 0 auto; }
+    .store-card { flex: 1 1 158px; max-width: 210px; border: 1px solid #4A4750; padding: 24px 16px; transition: border-color 0.25s, background 0.25s, transform 0.25s; }
     .store-card:hover { border-color: var(--accent); background: #26252A; transform: translateY(-3px); }
     .store-name { display: block; font-size: 0.9rem; font-weight: 500; color: #F8F6F3; margin-bottom: 5px; }
     .store-meta { display: block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: #8A8680; }
@@ -339,7 +339,6 @@
       .glance-grid { grid-template-columns: repeat(2, 1fr); }
       .prose-grid { grid-template-columns: 1fr; gap: 24px; }
       .foryou-grid { grid-template-columns: 1fr; }
-      .store-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       :root { --section-pad: 72px 20px; }
@@ -574,9 +573,10 @@
         <div class="faq-item">
           <h3><button class="faq-q" type="button">Where can I buy it, and in what formats?</button></h3>
           <div class="faq-a"><p>
-            The book is available from <strong>Notion Press</strong> and from <strong>Amazon</strong> in the US,
-            India and the UK, in paperback and hardcover, and as an ebook on Amazon Kindle, Google Play Books and
-            Kobo. Flipkart stocks it in India. ISBN 9798906432872.
+            In print, the book is available from <strong>Notion Press</strong> and from <strong>Amazon</strong>
+            in the US, India and the UK, in both paperback and hardcover. The ebook is available on
+            <strong>Kobo</strong>. Amazon Kindle and Flipkart editions are on the way.
+            ISBN 9798906432872.
           </p></div>
         </div>
 
@@ -620,7 +620,7 @@
 
       <div class="store-grid">
         <a class="store-card" href="https://notionpress.com/in/read/battling-the-three-big-bad-cs" target="_blank" rel="noopener">
-          <span class="store-name">Notion Press</span><span class="store-meta">Paperback · Hardcover</span>
+          <span class="store-name">Notion Press</span><span class="store-meta">Print editions</span>
         </a>
         <a class="store-card" href="https://www.amazon.com/Battling-Three-Big-Bad-Cs/dp/B0HF5FF1NS" target="_blank" rel="noopener">
           <span class="store-name">Amazon.com</span><span class="store-meta">United States</span>
@@ -631,21 +631,13 @@
         <a class="store-card" href="https://www.amazon.co.uk/dp/B0HF5FF1NS" target="_blank" rel="noopener">
           <span class="store-name">Amazon.co.uk</span><span class="store-meta">United Kingdom</span>
         </a>
-        <!-- TODO Eileen: replace the three search links below (Kindle, Flipkart, Google Play) with direct product URLs when you have them. Kobo is already a direct link. -->
-        <a class="store-card" href="https://www.amazon.com/s?k=Battling+The+Three+Big+Bad+Cs+Eileen+Lui&i=digital-text" target="_blank" rel="noopener">
-          <span class="store-name">Amazon Kindle</span><span class="store-meta">Ebook</span>
-        </a>
-        <a class="store-card" href="https://www.flipkart.com/search?q=Battling+The+Three+Big+Bad+Cs" target="_blank" rel="noopener">
-          <span class="store-name">Flipkart</span><span class="store-meta">India</span>
-        </a>
-        <a class="store-card" href="https://play.google.com/store/search?q=Battling%20The%20Three%20Big%20Bad%20Cs&c=books" target="_blank" rel="noopener">
-          <span class="store-name">Google Play Books</span><span class="store-meta">Ebook</span>
-        </a>
         <a class="store-card" href="https://www.kobo.com/us/en/ebook/battling-the-three-big-bad-cs" target="_blank" rel="noopener">
           <span class="store-name">Kobo</span><span class="store-meta">Ebook</span>
         </a>
+        <!-- Add new stores as cards here as they go live (e.g. Amazon Kindle, Flipkart). -->
       </div>
 
+      <p class="isbn-line" style="margin-top:32px;color:#B8B4AF;">Amazon Kindle and Flipkart editions are on the way.</p>
       <p class="isbn-line">Published August 2026 &nbsp;·&nbsp; Notion Press &nbsp;·&nbsp; ISBN 9798906432872 &nbsp;·&nbsp; 216 pages &nbsp;·&nbsp; English</p>
     </div>
   </section>
