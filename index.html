@@ -6,7 +6,7 @@
 
   <!-- Primary SEO -->
   <title>Eileen Lui | Strategic Communications Leader &amp; Author</title>
-  <meta name="description" content="Eileen Lui is a multilingual strategic communications leader with 20+ years across Southeast Asia and author of the memoir Battling The Three Big Bad Cs. Open to humanitarian roles, consultancy, and volunteer work in conflict-affected settings including Syria." />
+  <meta name="description" content="Communications leader with 20+ years across Southeast Asia and author of the memoir Battling The Three Big Bad Cs. Open to humanitarian roles and consultancy." />
   <meta name="keywords" content="Eileen Lui, Eileen Lui author, Battling The Three Big Bad Cs, Myanmar coup memoir, cancer and grief memoir, strategic communications, humanitarian communications, content strategy, editorial leadership, INGO communications, Southeast Asia, Myanmar, climate communications, Energy Tracker Asia" />
   <meta name="author" content="Eileen Lui" />
   <meta name="robots" content="index, follow" />
@@ -91,10 +91,16 @@
     "description": "Covid. Coup. Cancer. A memoir about three catastrophes that arrived within a few short years of each other \u2014 a global pandemic, Myanmar's military coup, and the cancer that took the love of the author's life \u2014 and about the grief that began long before the death did."
   }
   </script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate icon" href="/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#1C1C1E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-  <link rel="preload" as="image" href="book-cover.jpg" />
+  <link rel="preload" as="image" href="book-cover.webp" type="image/webp"
+        imagesrcset="book-cover-480.webp 480w, book-cover.webp 680w"
+        imagesizes="(max-width: 768px) 200px, 268px" fetchpriority="high" />
   <link rel="preload" as="image" href="eileen-photo.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
@@ -104,6 +110,9 @@
       --text:        #1A1A1A;
       --text-light:  #5A5754;
       --accent:      #E8007D;
+      --accent-btn:  #D4006F;   /* white text sits on this (5.2:1) */
+      --accent-ink:  #C40068;   /* accent TEXT on light bg (5.5:1) */
+      --accent-lit:  #FF66AC;   /* accent TEXT on dark bg (4.9:1) */
       --divider:     #D4D0CA;
       --font-serif:  'DM Serif Display', Georgia, serif;
       --font-sans:   'Inter', system-ui, sans-serif;
@@ -129,6 +138,11 @@
     /* Reveal */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .scroll-line { animation: none; }
+    }
 
     /* Nav */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s ease, box-shadow 0.3s ease; }
@@ -149,14 +163,15 @@
     /* ---------- Book announcement band ---------- */
     #book-band { background: linear-gradient(170deg, #16151A 0%, #1C1C1E 58%, #232227 100%); color: #F8F6F3; padding: 132px 24px 76px; }
     .bb-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 268px 1fr; gap: 64px; align-items: center; }
+    .bb-cover picture { display: block; }
     .bb-cover img { width: 100%; height: auto; box-shadow: 0 28px 64px rgba(0,0,0,0.55); }
-    .bb-badge { display: inline-block; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; background: var(--accent); padding: 6px 13px; margin-bottom: 18px; }
+    .bb-badge { display: inline-block; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; background: var(--accent-btn); padding: 6px 13px; margin-bottom: 18px; }
     .bb-title { font-family: var(--font-serif); font-size: clamp(2rem, 4.2vw, 3.1rem); line-height: 1.12; color: #fff; margin-bottom: 14px; }
     .bb-title a:hover { color: var(--accent); }
     .bb-sub { font-family: var(--font-serif); font-size: clamp(1.05rem, 1.9vw, 1.35rem); color: #E4E0DB; line-height: 1.45; margin-bottom: 22px; max-width: 34ch; }
     .bb-cs { display: flex; gap: 9px; flex-wrap: wrap; margin-bottom: 24px; }
     .bb-c { border: 1px solid #4A4750; padding: 6px 14px; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #C9C5C0; }
-    .bb-c strong { color: var(--accent); font-weight: 600; }
+    .bb-c strong { color: var(--accent-lit); font-weight: 600; }
     .bb-quote { border-left: 2px solid var(--accent); padding-left: 20px; margin-bottom: 30px; max-width: 58ch; }
     .bb-quote p { font-size: 0.95rem; color: #B8B4AF; font-style: italic; max-width: none; }
     .bb-quote p + p { margin-top: 10px; }
@@ -164,7 +179,7 @@
     .bb-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
     .bb-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; font-size: 0.74rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; border: 1.5px solid #686468; color: #F8F6F3; transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s; }
     .bb-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
-    .bb-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .bb-btn.primary { background: var(--accent-btn); border-color: var(--accent-btn); color: #fff; }
     .bb-btn.primary:hover { background: #c40069; border-color: #c40069; color: #fff; }
     .bb-next { margin-top: 26px; font-size: 0.78rem; color: #8A8680; letter-spacing: 0.02em; }
     .bb-next a { color: #C9C5C0; border-bottom: 1px solid #4A4750; }
@@ -181,7 +196,7 @@
     .hero-image-wrap { position: relative; }
     .hero-image-wrap img { width: 100%; max-width: 480px; height: 580px; object-fit: cover; object-position: center top; }
     .hero-image-wrap::after { content: ''; position: absolute; bottom: -16px; right: -16px; width: 100%; height: 100%; border: 2px solid var(--accent); z-index: -1; max-width: 480px; }
-    .scroll-indicator { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 40px; opacity: 0.45; }
+    .scroll-indicator { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 40px; opacity: 0.85; }
     .scroll-indicator span { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; }
     .scroll-line { width: 1px; height: 40px; background: var(--text); animation: scrollDrop 1.8s ease infinite; }
     @keyframes scrollDrop { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform: scaleY(1); transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
@@ -206,9 +221,12 @@
     .slider { position: relative; overflow: hidden; }
     .slider-track { display: flex; transition: transform 0.5s ease; }
     .slider-track img { min-width: 100%; height: 520px; object-fit: cover; }
-    .slider-nav { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; }
-    .slider-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.4); cursor: pointer; border: none; transition: background 0.2s; }
-    .slider-dot.active { background: var(--accent); }
+    .slider-nav { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 2px; }
+    /* 24px hit area (WCAG 2.2 target size) with a 6px visual dot inside */
+    .slider-dot { width: 24px; height: 24px; padding: 0; background: none; border: none; cursor: pointer; position: relative; }
+    .slider-dot::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.55); transition: background 0.2s; }
+    .slider-dot:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 50%; }
+    .slider-dot.active::before { background: var(--accent); }
     .slider-arrows { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between; padding: 0 12px; pointer-events: none; }
     .slider-arrow { pointer-events: all; background: rgba(248,246,243,0.85); border: none; width: 36px; height: 36px; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
     .slider-arrow:hover { background: var(--accent); color: #fff; }
@@ -216,18 +234,18 @@
     /* Work */
     #work { background: var(--bg-dark); padding: var(--section-pad); }
     .work-header { max-width: var(--max-w); margin: 0 auto 64px; }
-    .work-header .label { margin-bottom: 16px; }
+    .work-header .label { margin-bottom: 16px; color: #B8B4AF; }
     .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: var(--max-w); margin: 0 auto; }
     .work-card { background: #303032; position: relative; transition: transform 0.3s ease; overflow: hidden; }
     .work-card:hover { transform: translateY(-6px); }
     .work-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--accent); transition: height 0.3s ease; z-index: 2; }
     .work-card:hover::before { height: 100%; }
     .work-card-body { padding: 32px; }
-    .work-card-number { font-family: var(--font-serif); font-size: 3rem; color: #686468; line-height: 1; margin-bottom: 24px; }
+    .work-card-number { font-family: var(--font-serif); font-size: 3rem; color: #9A9691; line-height: 1; margin-bottom: 24px; }
     .work-card h3 { color: #F8F6F3; margin-bottom: 12px; }
     .work-card p { color: #B8B4AF; font-size: 0.9rem; max-width: none; }
     .work-card-bold { color: #fff !important; font-size: 0.88rem !important; font-weight: 600 !important; font-style: italic; margin-top: 12px !important; border-left: 2px solid var(--accent); padding-left: 10px; }
-    .work-card-tag { display: inline-block; margin-top: 20px; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+    .work-card-tag { display: inline-block; margin-top: 20px; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-lit); border-bottom: 1px solid var(--accent-lit); padding-bottom: 2px; }
     .work-card .slider { border-bottom: 2px solid #1C1C1E; }
     .work-card .slider-track img { height: 220px; object-fit: cover; min-width: 100%; }
     .work-card .slider-arrow { width: 28px; height: 28px; font-size: 0.8rem; }
@@ -278,13 +296,15 @@
     .media-card { background: #303032; padding: 32px; border-left: 3px solid transparent; transition: border-color 0.25s; }
     .media-card:hover { border-left-color: var(--accent); }
     .media-card h3 { font-family: var(--font-serif); font-size: 1.05rem; color: #F8F6F3; margin-bottom: 6px; }
-    .media-outlet { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 12px; }
+    .media-outlet { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-lit); display: block; margin-bottom: 12px; }
     .media-card p { font-size: 0.88rem; color: #B8B4AF; max-width: none; }
-    .media-card a { color: var(--accent); text-decoration: underline; }
+    .media-card a { color: var(--accent-lit); text-decoration: underline; }
 
     /* Timeline */
     #timeline { background: var(--bg-dark); padding: var(--section-pad); overflow: hidden; }
     .timeline-header { max-width: var(--max-w); margin: 0 auto 56px; }
+    .timeline-header .label { color: #B8B4AF; }
+    .timeline-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
     .timeline-scroll { overflow-x: auto; padding-bottom: 24px; scrollbar-width: thin; scrollbar-color: var(--accent) #2A2A2C; }
     .timeline-track { display: flex; min-width: max-content; padding: 0 24px; position: relative; }
     .timeline-track::before { content: ''; position: absolute; top: 18px; left: 0; right: 0; height: 1px; background: #555255; }
@@ -300,9 +320,9 @@
     .beyond-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: var(--max-w); margin: 0 auto; }
     .beyond-items { display: flex; flex-direction: column; gap: 40px; }
     .beyond-item h3 { font-size: 1.1rem; margin-bottom: 4px; }
-    .beyond-tagline { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 10px; }
+    .beyond-tagline { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-ink); display: block; margin-bottom: 10px; }
     .beyond-item p { font-size: 0.9rem; color: var(--text-light); max-width: none; margin-bottom: 8px; }
-    .humanitarian-note { font-size: 0.82rem; color: var(--accent); border-left: 2px solid var(--accent); padding-left: 10px; font-style: italic; display: block; margin-top: 6px; opacity: 0.85; }
+    .humanitarian-note { font-size: 0.82rem; color: var(--accent-ink); border-left: 2px solid var(--accent); padding-left: 10px; font-style: italic; display: block; margin-top: 6px; }
     .beyond-divider { width: 32px; height: 2px; background: var(--accent); margin-bottom: 16px; }
     .beyond-subtitle { font-size: 0.95rem; color: var(--text-light); font-style: italic; margin-bottom: 40px; max-width: 56ch; }
     .beyond-slider-sticky { position: sticky; top: 88px; }
@@ -346,7 +366,7 @@
       .archetype-grid { grid-template-columns: 1fr; }
       .skillviz-layout { grid-template-columns: 1fr; gap: 36px; }
       .media-grid { grid-template-columns: 1fr; }
-      .beyond-slider-sticky { position: static; }
+      .beyond-slider-sticky { position: relative; top: auto; }
       #contact { padding: 80px 20px; }
       .contact-links { flex-direction: column; align-items: center; }
     }
@@ -367,7 +387,7 @@
       <li><a href="#beyond">Beyond</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobile">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -388,8 +408,11 @@
     <div class="bb-inner">
       <div class="bb-cover reveal">
         <a href="/battling-the-three-big-bad-cs">
-          <img src="book-cover.jpg" width="768" height="1104"
-               alt="Cover of Battling The Three Big Bad Cs, a memoir by Eileen Lui" fetchpriority="high" />
+<picture>
+            <source type="image/webp" srcset="book-cover-480.webp 480w, book-cover.webp 680w" sizes="(max-width: 768px) 200px, 268px" />
+            <img src="book-cover.jpg" srcset="book-cover-480.jpg 480w, book-cover.jpg 680w" sizes="(max-width: 768px) 200px, 268px"
+                 width="680" height="978" alt="Cover of Battling The Three Big Bad Cs, a memoir by Eileen Lui" fetchpriority="high" decoding="async" />
+          </picture>
         </a>
       </div>
       <div class="reveal">
@@ -423,6 +446,7 @@
     </div>
   </section>
 
+  <main id="main">
   <!-- HERO -->
   <div style="max-width:var(--max-w);margin:0 auto;">
     <section id="hero">
@@ -430,7 +454,7 @@
         <p class="label">Strategic Content and Communications</p>
         <h1 class="hero-title">Eileen<br><span>Lui</span></h1>
         <p class="hero-tagline">
-          20 years of turning vision into reality. I build editorial programs,
+          20 years of turning vision into reality. I build editorial programmes,
           teams, and systems that make complex ideas land with the people who
           need to hear them.
         </p>
@@ -484,7 +508,7 @@
         <h2>Built for the work that matters.</h2>
         <p>
           I am a multilingual communications leader with 20 years of experience across
-          Southeast and East Asia. I build things from scratch: editorial programs, internal
+          Southeast and East Asia. I build things from scratch: editorial programmes, internal
           marketing teams, social enterprises, loyalty platforms. My core skill is translating
           complex narratives, from COP and G20 to climate impacts and community livelihoods,
           into stories that reach the people who need to hear them.
@@ -492,7 +516,7 @@
         <p>
           I spent a decade in Myanmar, building the marketing communications function for
           City Holdings Limited and mentoring a generation of young communications
-          professionals. I then moved to Thailand to lead the editorial program at Cuttlefish
+          professionals. I then moved to Thailand to lead the editorial programme at Cuttlefish
           Media, growing Energy Tracker Asia and Climate Impacts Tracker Asia into credible,
           data-driven platforms with a combined reach of over 600,000 organic users and
           10.6 million YouTube views.
@@ -546,7 +570,7 @@
         <div class="work-card-body">
           <div class="work-card-number">01</div>
           <h3>Energy Tracker Asia and Climate Impacts Tracker Asia</h3>
-          <p>I built the editorial program, content strategy, SEO framework, social teams, newsletter, and podcast infrastructure for two climate media platforms from scratch. Grew combined organic traffic by 1,966% over three years.</p>
+          <p>I built the editorial programme, content strategy, SEO framework, social teams, newsletter, and podcast infrastructure for two climate media platforms from scratch. Grew combined organic traffic by 1,966% over three years.</p>
           <p class="work-card-bold">This work matters because accessible climate information enables vulnerable communities to advocate for their own protection and adaptation.</p>
           <span class="work-card-tag">Editorial Leadership</span>
         </div>
@@ -569,7 +593,7 @@
           <div class="work-card-number">02</div>
           <h3>SoyAi and Children of Tomorrow Youth Centre</h3>
           <p>Co-founded a youth centre in Myanmar with my husband, serving children from orphanages and homes. Launched SoyAi, a social enterprise producing soy milk and tofu run by youths from the Centre. Winner of the ASEAN Impact Challenge 2017 for Myanmar.</p>
-          <p class="work-card-bold">This is a localization model: a youth-run, financially self-sustaining social enterprise. It demonstrates how livelihood programming can be owned by the community itself.</p>
+          <p class="work-card-bold">This is a localisation model: a youth-run, financially self-sustaining social enterprise. It demonstrates how livelihood programming can be owned by the community itself.</p>
           <span class="work-card-tag">Social Enterprise</span>
         </div>
       </div>
@@ -630,12 +654,12 @@
         <h2 style="margin-bottom:40px;">How Eileen works.</h2>
         <div class="archetype-grid">
           <div class="archetype-card">
-            <h3>Organizer</h3>
+            <h3>Organiser</h3>
             <p>Conscientious, efficient, and detail-oriented. Thrives when given autonomy to execute.</p>
           </div>
           <div class="archetype-card">
             <h3>Protector</h3>
-            <p>Dutiful, organized, and fair. Leads by creating accountability without hierarchy.</p>
+            <p>Dutiful, organised, and fair. Leads by creating accountability without hierarchy.</p>
           </div>
           <div class="archetype-card">
             <h3>Idealist</h3>
@@ -659,7 +683,7 @@
         <div class="skillviz-cluster">
           <div class="skillviz-cluster-header">
             <div class="skillviz-dot" style="background:#E8007D;"></div>
-            <span class="skillviz-cluster-name" style="color:#E8007D;">Strategy</span>
+            <span class="skillviz-cluster-name" style="color:#C40068;">Strategy</span>
           </div>
           <div class="skillviz-bars">
             <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Content Strategy</span><span class="skillviz-pct">97%</span></div><div class="skillviz-track"><div class="skillviz-fill c-strategy" data-w="97"></div></div></div>
@@ -685,7 +709,7 @@
         <div class="skillviz-cluster">
           <div class="skillviz-cluster-header">
             <div class="skillviz-dot" style="background:#0891B2;"></div>
-            <span class="skillviz-cluster-name" style="color:#0891B2;">Craft</span>
+            <span class="skillviz-cluster-name" style="color:#0E7490;">Craft</span>
           </div>
           <div class="skillviz-bars">
             <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Editorial Judgment</span><span class="skillviz-pct">97%</span></div><div class="skillviz-track"><div class="skillviz-fill c-craft" data-w="97"></div></div></div>
@@ -698,7 +722,7 @@
         <div class="skillviz-cluster">
           <div class="skillviz-cluster-header">
             <div class="skillviz-dot" style="background:#059669;"></div>
-            <span class="skillviz-cluster-name" style="color:#059669;">Human</span>
+            <span class="skillviz-cluster-name" style="color:#047857;">Human</span>
           </div>
           <div class="skillviz-bars">
             <div class="skillviz-row"><div class="skillviz-row-top"><span class="skillviz-label">Stakeholder Engagement</span><span class="skillviz-pct">92%</span></div><div class="skillviz-track"><div class="skillviz-fill c-human" data-w="92"></div></div></div>
@@ -718,7 +742,7 @@
       <p class="label">Career</p>
       <h2 style="color:#F8F6F3;">25 years across Asia.</h2>
     </div>
-    <div class="timeline-scroll">
+    <div class="timeline-scroll" tabindex="0" role="region" aria-label="Career timeline, scroll horizontally">
       <div class="timeline-track">
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
@@ -826,9 +850,9 @@
         <div class="beyond-item">
           <div class="beyond-divider"></div>
           <h3>Children of Tomorrow Youth Centre &amp; SoyAi</h3>
-          <span class="beyond-tagline">A localized, community-owned livelihood model.</span>
-          <p>Together with my husband, we co-founded a youth centre serving children from orphanages and homes in Myanmar. Rather than charity, we built SoyAi, a social enterprise producing soy milk and tofu, run entirely by youths from marginalized communities. This is a localization approach: the community owns the business, the skills, and the income. It won the ASEAN Impact Challenge 2017 for Myanmar.</p>
-          <span class="humanitarian-note">Humanitarian relevance: Self-sustaining livelihoods, youth agency, and community ownership, directly transferable to humanitarian programming models that prioritize dignity over dependency.</span>
+          <span class="beyond-tagline">A localised, community-owned livelihood model.</span>
+          <p>Together with my husband, we co-founded a youth centre serving children from orphanages and homes in Myanmar. Rather than charity, we built SoyAi, a social enterprise producing soy milk and tofu, run entirely by youths from marginalised communities. This is a localisation approach: the community owns the business, the skills, and the income. It won the ASEAN Impact Challenge 2017 for Myanmar.</p>
+          <span class="humanitarian-note">Humanitarian relevance: Self-sustaining livelihoods, youth agency, and community ownership, directly transferable to humanitarian programming models that prioritise dignity over dependency.</span>
         </div>
         <div class="beyond-item">
           <div class="beyond-divider"></div>
@@ -849,13 +873,13 @@
           <h3>Lecturer &amp; Facilitator</h3>
           <span class="beyond-tagline">Building local capacity, not dependency.</span>
           <p>I lecture part-time at Strategy First University Myanmar, teaching ICM Advertising and CIM Digital Strategy to working adults. I also facilitate workshops on digital communications and women's empowerment for community-based organizations.</p>
-          <span class="humanitarian-note">Humanitarian relevance: Skills transfer and local capacity building, a core humanitarian principle. My approach prioritizes leaving people with tools they own, not solutions they depend on.</span>
+          <span class="humanitarian-note">Humanitarian relevance: Skills transfer and local capacity building, a core humanitarian principle. My approach prioritises leaving people with tools they own, not solutions they depend on.</span>
         </div>
         <div class="beyond-item">
           <div class="beyond-divider"></div>
           <h3>Humanitarian Commitment</h3>
           <span class="beyond-tagline">Principles I will not compromise.</span>
-          <p>I am guided by the principles of localization, accountability to affected populations, do no harm, and dignity-driven programming. These are not terms I use lightly. They are the framework I have applied in Myanmar's most difficult years, and the framework I will bring to humanitarian organizations working in any conflict-affected settings.</p>
+          <p>I am guided by the principles of localisation, accountability to affected populations, do no harm, and dignity-driven programming. These are not terms I use lightly. They are the framework I have applied in Myanmar's most difficult years, and the framework I will bring to humanitarian organizations working in any conflict-affected settings.</p>
         </div>
       </div>
       <div class="slider reveal beyond-slider-sticky" id="beyondSlider">
@@ -890,6 +914,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER -->
   <footer>
     <p>Eileen Lui &copy; 2026. Built on GitHub, hosted on Vercel.</p>
@@ -903,12 +929,20 @@
     });
 
     // Mobile nav
-    document.getElementById('navToggle').addEventListener('click', () => {
-      document.getElementById('navMobile').classList.toggle('open');
+    const navToggle = document.getElementById('navToggle');
+    navToggle.addEventListener('click', () => {
+      const open = document.getElementById('navMobile').classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     function closeMobileNav() {
       document.getElementById('navMobile').classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
     }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.getElementById('navMobile').classList.contains('open')) {
+        closeMobileNav(); navToggle.focus();
+      }
+    });
 
     // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
@@ -970,6 +1004,8 @@
       imgs.forEach((_,i) => {
         const dot = document.createElement('button');
         dot.className = 'slider-dot' + (i===0?' active':'');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Show image ' + (i+1) + ' of ' + imgs.length);
         dot.onclick = () => { sliderState[trackId]=i; track.style.transform=`translateX(-${i*100}%)`; updateDots(trackId,imgs.length); };
         dc.appendChild(dot);
       });
